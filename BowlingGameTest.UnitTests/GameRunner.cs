@@ -1,35 +1,32 @@
-﻿using BowlingGameTest;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BowlingGameTest.UnitTests {
 
-	public class GameRunner {
-		private IBowlingGame _bowlingGame;
+    public class GameRunner {
+        private IBowlingGame _bowlingGame;
 
-		public GameRunner(IBowlingGame bowlingGame) {
-			_bowlingGame = bowlingGame;
-		}
+        public GameRunner(IBowlingGame bowlingGame) {
+            _bowlingGame = bowlingGame;
+        }
 
-		public int Run(string[] frames) {
-			foreach (string frame in frames) {
-				// Each frame is laid out as <int>:<int>.  That's why I'm Splitting on the ':' character.
-				int[] throws = Array.ConvertAll(
-					frame.Split(new char[] { ':' }),
-					(str) => Int32.Parse(str)
-				);
+        public int Run(string[] frames) {
+            foreach (string frame in frames) {
+                // Each frame is laid out as <int>:<int>.  That's why I'm splitting on ':'
+                string[] throwsStr = frame.Split(new char[] { ':' });
+                int[] throws = new int[throwsStr.Length];
 
-				// This method is to be implemented by the test taker.
-				_bowlingGame.AddFrame(throws);
-			}
+                for (short i = 0; i < throwsStr.Length; ++i) {
+                    throws[i] = Int32.Parse(throwsStr[i]);
+                }
 
-			// This property is to be implemented by the test taker.
-			return _bowlingGame.FinalScore;
-		}
+                // This method is to be implemented by the test taker
+                _bowlingGame.AddFrame(throws);
+            }
 
-	}
+            // This property is to be implemented by the test taker.
+            return _bowlingGame.FinalScore;
+        }
+
+    }
 
 }
