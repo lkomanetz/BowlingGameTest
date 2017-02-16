@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BowlingGameTest {
+﻿namespace BowlingGameLibrary {
 
     public interface IBowlingGame {
 

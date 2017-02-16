@@ -1,3 +1,4 @@
+using BowlingGameLibrary;
 using System;
 
 namespace BowlingGameTest.UnitTests {

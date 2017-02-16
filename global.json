@@ -1,0 +1,6 @@
+{
+    "projects": [
+        "BowlingGameLibrary",
+        "BowlingGameTest.UnitTests"
+    ]
+}

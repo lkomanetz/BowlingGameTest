@@ -1,5 +1,4 @@
-using BowlingGameTest;
-using System;
+using BowlingGameLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BowlingGameTest.UnitTests {
@@ -8,7 +7,7 @@ namespace BowlingGameTest.UnitTests {
 	public class BowlingTests {
 		private IBowlingGame _bowlingGame;
 
-		[TestInitialize]
+        [TestInitialize]
 		public void Initialize() {
 			_bowlingGame = GetBowlingGame();
 		}
@@ -82,7 +81,7 @@ namespace BowlingGameTest.UnitTests {
 		}
 
 		private IBowlingGame GetBowlingGame() {
-			return null;
+			return new BowlingGame();
 		}
 
 		private void AssertScore(string fullGame, int expectedScore) {
